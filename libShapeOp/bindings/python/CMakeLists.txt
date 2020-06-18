@@ -14,9 +14,10 @@ if(SWIG_FOUND)
     set(CMAKE_SWIG_FLAGS "")
 
     set_source_files_properties(shapeop.i PROPERTIES CPLUSPLUS ON)
-    set_property(SOURCE shapeop.i PROPERTY SWIG_FLAGS "-includeall") #add "-py3" here to generate python 3 code
+    set_property(SOURCE shapeop.i PROPERTY SWIG_FLAGS "-includeall" "-py3") #add "-py3" here to generate python 3 code
 
     swig_add_module(shapeopPython python shapeop.i ${SOURCES})
+    set(PYTHON_LIBRARIES /Users/Roll/opt/anaconda3/lib/libpython3.7m.dylib)
     swig_link_libraries(shapeopPython ${PYTHON_LIBRARIES})
 
     configure_file(runme.py runme.py COPYONLY)
