@@ -17,7 +17,8 @@ if(SWIG_FOUND)
     set_property(SOURCE shapeop.i PROPERTY SWIG_FLAGS "-includeall" "-py3") #add "-py3" here to generate python 3 code
 
     swig_add_module(shapeopPython python shapeop.i ${SOURCES})
-    set(PYTHON_LIBRARIES /Users/Roll/opt/anaconda3/lib/libpython3.7m.dylib)
+    # set(PYTHON_LIBRARIES /Users/Roll/opt/anaconda3/lib/libpython3.7m.dylib)
+    message(${PYTHON_LIBRARIES})
     swig_link_libraries(shapeopPython ${PYTHON_LIBRARIES})
 
     configure_file(runme.py runme.py COPYONLY)
